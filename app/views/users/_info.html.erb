@@ -4,10 +4,18 @@
 	  <th>name</th>
 	  <th><%= user.name %></th>
   </tr>
-  <tr>
+   <tr>
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
-  </tr>
+	  </tr>
+	  <tr>
+	  <th><%= "#{User.human_attribute_name("follows")}" %></th>
+	  <th><%= link_to "#{user.followed_users.count}", followeds_user_path(current_user) %></th>
+	  </tr>
+	  <tr>
+    <th><%= "#{User.human_attribute_name("followers")}" %></th>
+    <th><%= link_to "#{user.follower_users.count}", followers_user_path(current_user) %></th>
+    </tr>
 </table>
 
 <div class='row'>
